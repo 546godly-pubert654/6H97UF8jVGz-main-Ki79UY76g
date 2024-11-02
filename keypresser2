@@ -1,0 +1,40 @@
+getgenv().bolt = "Q"
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Lucid.lua",
+    Text = "credit cognise",
+    Duration = 5
+})
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Change Key",
+    Text = "/e ekey (key) to change key!",
+    Duration = 5
+})
+
+local tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Key Presser"
+tool.Activated:Connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, getgenv().bolt, false, game)
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+    tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(message)
+    local prefix = "/e ekey "
+    local newBolt = message:sub(#prefix + 1)
+    if message:sub(1, #prefix) == prefix then
+        getgenv().bolt = newBolt:upper()
+        warn("Updated:", newBolt:upper())
+
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Key Updated",
+            Text = "New key set: " .. newBolt:upper(),
+            Duration = 2
+        })
+    end
+end)
