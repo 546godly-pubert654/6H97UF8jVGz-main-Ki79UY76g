@@ -1,6 +1,5 @@
 local StarterGui = game:GetService("StarterGui")
 
--- Display notification when the script runs
 StarterGui:SetCore("SendNotification", {
     Title = "Lucid.lua",
     Text = "Credits to Zackary#1011",
@@ -95,7 +94,7 @@ PrayingAnimation.AnimationId = "rbxassetid://3487719500"
 
 local TheDefaultAnimation = Instance.new("Animation", Animations)
 TheDefaultAnimation.Name = "TheDefault"
-TheDefaultAnimation.AnimationId = "rbxassetid://11710529975" -- FIX THIS
+TheDefaultAnimation.AnimationId = "rbxassetid://11710529975" 
 
 local SturdyAnimation = Instance.new("Animation", Animations)
 SturdyAnimation.Name = "Sturdy"
